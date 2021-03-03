@@ -1,5 +1,11 @@
 
 
+static int fl_probe(struct i2c_client *client)
+{
+
+	return 0;
+}	
+
 static const struct of_device_id fl_of_match[] = {
 	/*
 	 * contrast  with the node's compatible in dts
