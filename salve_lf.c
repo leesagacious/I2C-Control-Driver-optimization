@@ -1,7 +1,11 @@
 
 
 static const struct of_device_id fl_of_match[] = {
+	/*
+	 * contrast  with the node's compatible in dts
+	 */
 	{ .compatible = "Honeywell,carboncd500",	.data = NULL },
+	{ },
 };
 
 static struct i2c_driver fl_driver = {
