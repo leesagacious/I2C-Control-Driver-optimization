@@ -1,4 +1,9 @@
 
+
+static const struct of_device_id fl_of_match[] = {
+	{ .compatible = "Honeywell,carboncd500",	.data = NULL },
+};
+
 static struct i2c_driver fl_driver = {
 	.driver = {
 		.name = "fl_sensor",
