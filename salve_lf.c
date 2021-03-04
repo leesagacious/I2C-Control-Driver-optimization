@@ -25,7 +25,10 @@ static struct i2c_driver fl_driver = {
 		.pm = &fl_pm_ops,
 		.of_match_table = fl_of_match,
 	},
-	.probe_new = fl_probe,
+	/*
+	 * In the latest version of the kernel, probe_new function has been deleted,
+	 */
+	.probe = fl_probe,
 	.remove = fl_remove,
 	/*
 	 * It is not limited to the i2c_client of the device tree. 
