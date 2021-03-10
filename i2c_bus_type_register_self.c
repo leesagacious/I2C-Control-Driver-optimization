@@ -2,7 +2,7 @@
  * The match function is a very beautiful function. 
  * one parameter is device and the other is device driver
  */
-static int i2c_device_match(struct device *dev, struct device_driver *drv)
+static int self_appropriate(struct device *dev, struct device_driver *drv)
 {
 
 
