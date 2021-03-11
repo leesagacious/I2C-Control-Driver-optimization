@@ -16,7 +16,11 @@ struct bus_type i2c_bus_type_self = {
 
 static int __init i2c_self_init(void)
 {
+	int ret;
 	
+	ret = bus_register_self(&i2c_bus_type_self);
+	if (ret)
+		return ret;	
 	/*
 	 * Indicates that the I2C bus has been registered
 	 * Instead of using a Boolean global variable
