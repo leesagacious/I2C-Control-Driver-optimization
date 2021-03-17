@@ -1,3 +1,17 @@
+#include <linux/platform_device.h>
+
+
+static int i2c_controller_self_probe(struct platform_device *pdev)
+{
+	int ret;
+	
+	return 0;
+
+res_failed:
+	
+	return ret;	
+}
+
 static struct platform_driver i2c_controller_self_driver = {
 	.driver		= {
 		.name	= "i2c-con_self",
