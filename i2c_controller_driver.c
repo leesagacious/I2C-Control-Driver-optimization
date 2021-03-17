@@ -3,7 +3,17 @@
 
 static int i2c_controller_self_probe(struct platform_device *pdev)
 {
-	int ret;
+	int ret, irq;
+
+	irq = platform_get_irq(pdev, 0);
+	if (irq < 0)
+		return irq;
+
+	ret = devm_request_threaded_irq();
+	if (ret) {
+		dev_err(&pdev->dev, "register irq has failure %d\n", irq);
+		goto res_failed;
+	}
 	
 	return 0;
 
