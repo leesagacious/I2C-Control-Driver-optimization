@@ -4,6 +4,8 @@
 static int i2c_controller_self_probe(struct platform_device *pdev)
 {
 	int ret, irq;
+	struct resource *res;
+	void __iomem *base;
 
 	irq = platform_get_irq(pdev, 0);
 	if (irq < 0)
@@ -14,6 +16,11 @@ static int i2c_controller_self_probe(struct platform_device *pdev)
 		dev_err(&pdev->dev, "register irq has failure %d\n", irq);
 		goto res_failed;
 	}
+
+	res = platform_get_resource(pdev, IORESOURCE_MEM, 0);
+	base = devm_ioremap_resource(&pdev->dev, res);
+	if (IS_ERR(base))
+		return PTR_ERR(base);
 	
 	return 0;
 
